@@ -1,160 +1,509 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sabbir | Professional Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5TGX3CSD');</script>
-<!-- End Google Tag Manager -->
-  </head>
-  <body class="dark-theme"> 
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TGX3CSD"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <div class="nav-bar">
-      <div class="logo">
-        <img src="logo.jpg" alt="Logo" />
-      </div>
-      <nav>
-        <ul class="menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#exp">Expertise</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#gi" class="getin">Get In Touch</a></li>
-        </ul>
-      </nav>
-      
-      <button id="theme-toggle" title="Toggle Theme">🌓</button>
-      <button id="hum">&#9776;</button>
-    </div>
+/* --- CSS Variables for Theme Management --- */
+.dark-theme {
+  --bg-main: #0b0f19;
+  --bg-card: #131c31;
+  --bg-nav: rgba(11, 15, 25, 0.85);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); /* ব্রাইট সায়ান-ব্লু গ্রেডিয়েন্ট */
+  --card-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+  --border-color: rgba(255, 255, 255, 0.05);
+}
 
-    <section class="bio">
-      <div class="left">
-        <h2>
-          Hi, I'm Sabbir — <span class="text"></span><span class="cursor">|</span>
-        </h2>
-        <p>
-          A self-taught, ambitious web developer and tech enthusiast from Bangladesh. 
-          I specialize in building high-performance websites from scratch and integrating 
-          modern AI-driven workflows. Currently expanding my horizons into advanced system architecture, 
-          data-driven performance, and seamless user experiences.
-        </p>
-        <div class="focus-areas">
-          <h3>Core Focus Areas:</h3>
-          <ul>
-            <li>Creative Front-end & Dynamic UI</li>
-            <li>Cloud Architecture & Deployment</li>
-            <li>Web Analytics & Performance Optimization</li>
-            <li>AI-Assisted Development Workflows</li>
-          </ul>
-        </div>
-        <p class="quote">“Small progress every day eventually builds real mastery.”</p>
-      </div>
-      <div class="right">
-        <div class="image-container">
-          <img src="hero.jpeg" alt="Sabbir" />
-        </div>
-      </div>
-    </section>
+.light-theme {
+  --bg-main: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-nav: rgba(241, 245, 249, 0.85);
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --accent-gradient: linear-gradient(135deg, #ff007f 0%, #7928ca 100%); /* ব্রাইট পিঙ্ক-পার্পল গ্রেডিয়েন্ট */
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --border-color: rgba(0, 0, 0, 0.08);
+}
 
-    <section class="expertise-section" id="exp">
-      <div class="section-title">
-        <h1>Areas of Expertise</h1>
-        <div class="title-line"></div>
-      </div>
-      
-      <div class="four-exp">
-        <div class="exp-card">
-          <div class="card-icon">💻</div>
-          <h2>Web Development</h2>
-          <p>
-            Crafting responsive, interactive, and highly optimized web applications using modern Javascript frameworks, clean DOM structure, and semantic layouts.
-          </p>
-        </div>
-        <div class="exp-card">
-          <div class="card-icon">📊</div>
-          <h2>Web Analytics</h2>
-          <p>
-            Tracking, analyzing, and improving user behavior and site performance using data-driven tools. Expert in SEO best practices and conversion optimization.
-          </p>
-        </div>
-        <div class="exp-card">
-          <div class="card-icon">☁️</div>
-          <h2>Cloud Engineering</h2>
-          <p>
-            Managing deployment workflows, secure hosting solutions, modern CI/CD pipelines, and leveraging cloud infrastructure for scalable applications.
-          </p>
-        </div>
-        <div class="exp-card">
-          <div class="card-icon">🚀</div>
-          <h2>Freelancing & Logic</h2>
-          <p>
-            Actively collaborating on remote git workflows, problem-solving complex JavaScript logic, and delivering clean engineering solutions to global clients.
-          </p>
-        </div>
-      </div>
-    </section>
+/* --- Global Reset & Base --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
 
-    <section class="projects-section" id="projects">
-      <div class="section-title">
-        <h1>Selected Projects</h1>
-        <div class="title-line"></div>
-      </div>
-      
-      <div class="slider-wrapper">
-        <div class="slider">
-          <div class="container">
-            <img class="pr-img" src="Project-1.jpg" alt="Project 1" />
-            <img class="pr-img" src="Project-5.jpg" alt="Project 2" />
-            <img class="pr-img" src="Project-6.jpg" alt="Project 3" />
-          </div>
-        </div>
-        <div class="button-container">
-          <button id="prev-btn">&lt;</button>
-          <button id="next-btn">&gt;</button>
-        </div>
-      </div>
-    </section>
-  <!-- Background decorative shapes (Optional: সুন্দর ব্যাকগ্রাউন্ডের জন্য) -->
-  <div class="circle circle-1"></div>
-  <div class="circle circle-2"></div>
+html {
+  scroll-behavior: smooth;
+}
 
-  <!-- Glassmorphism Form Container -->
-  <div class="glass-card">
-    <h2>Login</h2>
-    <form>
-      <div class="input-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
-      </div>
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter password" required>
-      </div>
+/* --- Navigation Bar --- */
+.nav-bar {
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-nav);
+  backdrop-filter: blur(12px);
+  padding: 0 5%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+}
 
-      <button type="submit" class="submit-btn">Sign In</button>
-    </form>
-  </div>
+.logo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #00f2fe;
+}
 
-    <footer id="gi">
-      <h2>Let's build something exceptional together.</h2>
-      <div class="contact-info">
-        <p>Email: <a href="mailto:mdsabbirhosain2003@gmail.com">mdsabbirhosain2003@gmail.com</a></p>
-        <p>Mobile: <a href="tel:+8801400058699">+880 1400058699</a></p>
-      </div>
-      <p class="copyright">&copy; 2026 Sabbir. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
-</html>
+nav ul {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+nav ul li a:hover {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.getin {
+  background: var(--accent-gradient);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+}
+
+.getin:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 15px;
+}
+
+#hum {
+  font-size: 28px;
+  display: none;
+  background: transparent;
+  color: var(--text-main);
+  border: none;
+  cursor: pointer;
+}
+
+/* --- Bio / Hero Section --- */
+.bio {
+  width: 90%;
+  max-width: 1200px;
+  margin: 18vh auto 0 auto;
+  min-height: 75vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.left {
+  width: 55%;
+}
+
+.left h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.left .text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* টাইপিং কার্সরের ব্লিংকিং অ্যানিমেশন */
+.cursor {
+  color: #00f2fe;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.left p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+.focus-areas h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.focus-areas ul {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.focus-areas ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+}
+
+.focus-areas ul li::before {
+  content: "⚡";
+  position: absolute;
+  left: 0;
+}
+
+.quote {
+  font-style: italic;
+  border-left: 4px solid #00f2fe;
+  padding-left: 15px !important;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.right {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.6;
+}
+
+.right img {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--bg-card);
+}
+
+/* --- Section Layouts --- */
+.expertise-section, .projects-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 120px auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.title-line {
+  width: 70px;
+  height: 5px;
+  background: var(--accent-gradient);
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+/* --- Expertise Card Grid (Neon Vibe) --- */
+.four-exp {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.exp-card {
+  background-color: var(--bg-card);
+  padding: 40px 30px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 4px;
+  background: var(--accent-gradient);
+}
+
+.exp-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 242, 254, 0.25);
+}
+
+.card-icon {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.exp-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+/* --- Slider & Projects --- */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+}
+
+.slider {
+  width: 100%;
+  height: 55vh;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.pr-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 106%;
+  position: absolute;
+  top: 50%;
+  left: -3%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.button-container button {
+  background: var(--bg-card);
+  color: var(--text-main);
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--border-color);
+  font-size: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.button-container button:hover {
+  background: var(--accent-gradient);
+  color: #fff;
+  border: none;
+}
+
+/* --- Footer --- */
+footer {
+  width: 100%;
+  background-color: var(--bg-card);
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+footer h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.contact-info p {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.contact-info a {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.copyright {
+  margin-top: 50px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 992px) {
+  .bio {
+    flex-direction: column-reverse;
+    gap: 40px;
+    text-align: center;
+    margin-top: 16vh;
+  }
+  .left, .right { width: 100%; }
+  .left p { text-align: center; }
+  .focus-areas ul li { display: inline-block; margin: 5px 12px; }
+  .button-container {
+    width: 100%; left: 0; position: relative;
+    top: 25px; transform: none; justify-content: center; gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul { display: none; }
+  #hum { display: block; }
+  #theme-toggle { margin-right: 20px; }
+}
+
+/* Mobile Menu Class toggle via JS */
+.show-menu {
+  display: flex !important;
+  flex-direction: column;
+  gap: 15px;
+  padding: 25px;
+  position: absolute;
+  right: 5%;
+  top: 13vh;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  width: 200px;
+  z-index: 100;
+}
+/* Glassmorphism Styles */
+.glass-card {
+  max-width: 380px;
+  margin: 40px auto; /* সেন্টারে রাখার জন্য */
+  padding: 30px;
+  border-radius: 16px;
+  
+  /* Main Glass Effect */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  
+  color: #fff;
+}
+
+.glass-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.glass-card .input-group {
+  margin-bottom: 16px;
+}
+
+.glass-card .input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.glass-card .input-group input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.glass-card .input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.glass-card .input-group input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.glass-card .submit-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.glass-card .submit-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
