@@ -435,6 +435,15 @@ footer h2 {
   border-radius: 16px;
   width: 200px;
   z-index: 100;
+.form{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  overflow: hidden;
+  position: relative;
+}
 
 /* Background Glowing Circles */
 .circle {
